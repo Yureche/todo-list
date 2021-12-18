@@ -1,0 +1,189 @@
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&display=swap");
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+:root {
+  --color-primary: #f6fff8;
+  --color-secondary: #eaf4f4;
+  --color-text: #181a18;
+  --color-special: #778da9;
+}
+body {
+  font-family: "Helvetica Neue", Helvetica, Arial;
+  background-color: var(--color-primary);
+  height: 100vh;
+  width: 100vw;
+}
+
+.header {
+  width: 100%;
+  height: 50px;
+  color: var(--color-text);
+  background: #6b9080;
+  padding: 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  z-index: 2;
+}
+
+.bar1,
+.bar2,
+.bar3 {
+  width: 35px;
+  height: 5px;
+  background-color: var(--color-text);
+  margin: 6px 0;
+  transition: 0.4s;
+}
+.change .bar1 {
+  -webkit-transform: rotate(-45deg) translate(-9px, 6px);
+  transform: rotate(-45deg) translate(-9px, 6px);
+}
+.change .bar2 {
+  opacity: 0;
+}
+.change .bar3 {
+  -webkit-transform: rotate(45deg) translate(-8px, -8px);
+  transform: rotate(45deg) translate(-8px, -8px);
+}
+.github {
+  width: 25px;
+  transition: 700ms;
+}
+.github:hover {
+  transform: scale(1.15);
+}
+
+.sidebar {
+  height: calc(100vh - 50px);
+  width: 300px;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  background-color: var(--color-secondary);
+  transition: 0.3s;
+  color: var(--color-text);
+  transform: translateX(-300px);
+  transition: transform 0.3s ease;
+  padding: 7px;
+  padding-right: 0;
+  z-index: 999;
+}
+
+.sidebar.open {
+  transform: translateX(0);
+  margin-right: 300px;
+}
+
+.sidebar-title {
+  font-family: "Open Sans", sans-serif;
+  font-weight: 600;
+  text-transform: uppercase;
+  font-size: 16px;
+  margin: 0 5px 5px;
+  color: var(--color-special);
+}
+
+.sidebar-project {
+  all: unset;
+  text-decoration: none;
+  margin-left: 10%;
+  font-size: 15px;
+  display: flex;
+  align-items: center;
+  line-height: 17px;
+  padding: 5px 10px;
+}
+
+.sidebar-project:hover {
+  background: white;
+  border-radius: 25px 0 0 25px;
+}
+.sidebar-project::before {
+  content: "• ";
+  margin-right: 5px;
+}
+
+.add-project {
+  all: unset;
+  position: absolute;
+  right: 7%;
+  margin: 8px;
+  cursor: pointer;
+}
+
+.add-project span {
+  color: red;
+  font-weight: bold;
+}
+
+.content {
+  position: absolute;
+  right: 0;
+  width: 100%;
+  height: calc(100vh - 50px);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.project-container {
+  height: 90%;
+  width: 90%;
+  max-width: 900px;
+  text-align: center;
+  padding: 15px;
+}
+
+.project-title {
+  text-align: left;
+  margin: 15px 0 50px;
+  font-size: 20px;
+  text-transform: uppercase;
+}
+
+.task {
+  border-left: 3px solid #b33a3a;
+  width: 100%;
+  max-width: 600px;
+  margin: 15px auto;
+  padding: 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  transition: margin 0.2s ease;
+  background: linear-gradient(to left, #f6fff8 50%, #eaf4f4 50%) right;
+  background-size: 200%;
+  transition: 0.4s ease;
+}
+
+.task:hover {
+  background-position: left;
+}
+
+.task-checkbox {
+  margin-right: 10px;
+  vertical-align: middle;
+  position: relative;
+  bottom: 1px;
+}
+
+.icons i {
+  visibility: hidden;
+  transition: transform 0.2s;
+  margin-left: 7px;
+}
+
+.icons i:hover {
+  transform: scale(1.1);
+}
+.task:hover i {
+  visibility: visible;
+}
